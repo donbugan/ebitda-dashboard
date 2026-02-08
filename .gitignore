@@ -1,0 +1,33 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Data (ignore contents, keep placeholder files)
+data/raw/*
+data/interim/*
+data/processed/*
+!data/raw/.keep
+!data/interim/.keep
+!data/processed/.keep
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Power BI
+powerbi/**/CacheStorage/
+powerbi/**/.pbi/
+powerbi/**/.pbi-cache/
+
+# Dataset Discovery 
+docs/discovery_outputs
