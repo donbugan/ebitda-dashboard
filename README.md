@@ -12,7 +12,7 @@ Revenue -> (COGS) -> Gross Profit -> (Opex) -> EBIT -> (+ D&A) -> EBITDA
 - scripts: helper scripts
 
 ## Next steps
-1) Pick a Kaggle fundamentals Dataset (CSV)
+1) Pick a Kaggle fundamentals Dataset (CSV) ✅
 2) Load into staging table (or PowerBI import)
 3) Build star schema + measures
 4) Create visuals: waterfall, trends, slicers
