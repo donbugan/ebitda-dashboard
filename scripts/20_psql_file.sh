@@ -13,5 +13,4 @@ set -a
 source "$(dirname "$0")/../.env"
 set +a
 
-PG_CONTAINER="{PG_CONTAINER:-ebitda_pg16}"
-docker exec -i "SPG_CONTAINER" psql -U "${PG_USER}" -d "${PG_DB}" < "${SQL_FILE}"
+docker exec -i "${PG_CONTAINER}" psql -U "${PG_USER}" -d "${PG_DB}" < "${SQL_FILE}"
