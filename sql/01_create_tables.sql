@@ -1,0 +1,2 @@
+-- Placeholder: core table DDL will live here.
+-- Next: staging tables for subsetted companyfacts + base dimensions.
