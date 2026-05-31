@@ -8,7 +8,7 @@ Revenue -> (COGS) -> Gross Profit -> (Opex) -> EBIT -> (+ D&A) -> EBITDA
 - data/interim: cleaned intermediate outputs (not committed)
 - data/processed: curated model outputs (not committed)
 - sql: schema + transformation queries ✅
-- powerbi: PBIX + model notes ⏳
+- powerbi: PBIX + model notes ✅
 - docs: metric definitions + decisions ✅
 - scripts: helper scripts ✅
 
@@ -32,14 +32,9 @@ Revenue -> (COGS) -> Gross Profit -> (Opex) -> EBIT -> (+ D&A) -> EBITDA
 - Architectural decisions log (docs/decisions.md)
 - Power BI setup guide: model, relationships, DAX measures, visuals (docs/powerbi_setup.md)
 
-## Next steps
-1) Build Power BI model (see docs/powerbi_setup.md)
-   - Connect to mart schema
-   - Define relationships
-   - Create DAX measures
-2) Build dashboard pages
-   - EBITDA overview (waterfall, trend, margin %)
-   - Component analysis
-   - Company comparison
-   - Depreciation schedule
-3) Produce business insights and case study write-up
+## Power BI phase (completed)
+- Connected to mart schema via PostgreSQL DirectQuery
+- Built DAX measures: Revenue, EBIT, DA, EBITDA, EBITDA Margin %, YOY Growth, Average DA
+- Four-page dashboard: EBITDA overview, component analysis, company comparison, depreciation schedule
+- 39 peer-grouped companies across 8 groups using SEC EDGAR public filings data
+- Exported PDF and published as portfolio piece (May 2026)

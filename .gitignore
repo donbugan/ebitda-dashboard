@@ -25,9 +25,13 @@ data/processed/*
 .ipynb_checkpoints/
 
 # Power BI
+/EBITDA.pbix
 powerbi/**/CacheStorage/
 powerbi/**/.pbi/
 powerbi/**/.pbi-cache/
+
+# Session recaps (personal notes)
+recap_*.md
 
 # Dataset Discovery 
 docs/discovery_outputs

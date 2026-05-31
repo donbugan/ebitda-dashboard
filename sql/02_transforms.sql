@@ -25,11 +25,19 @@ ON CONFLICT (date_key) DO NOTHING;
 
 -- fct_company_period: full replace from staging (idempotent)
 -- Grain: one row per cik / end_date / company_fact (long format)
+-- Deduped to keep only latest filing per (cik, end_date, companyfact)
 TRUNCATE mart.fct_company_period;
 
 INSERT INTO mart.fct_company_period (
     cik, end_date, company_fact, val, units, fy, fp, form, filed, load_id, loaded_at
 )
+WITH deduped AS (
+  SELECT
+    cik, end_date, companyfact, val, units, fy, fp, form, filed, load_id, loaded_at,
+    ROW_NUMBER() OVER (PARTITION BY cik, end_date, companyfact ORDER BY filed DESC) as rn
+  FROM staging.companyfacts_selected
+)
 SELECT
     cik, end_date, companyfact, val, units, fy, fp, form, filed, load_id, loaded_at
-FROM staging.companyfacts_selected;
+FROM deduped
+WHERE rn = 1;

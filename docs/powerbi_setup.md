@@ -78,35 +78,36 @@ CALCULATE(
 
 | Visual | Type | Fields |
 |---|---|---|
-| EBITDA waterfall | Waterfall chart | Categories: Revenue, EBIT, D&A, EBITDA. Values: respective DAX measures |
-| EBITDA trend | Line chart | X: `dim_date[year]`, Y: `[EBITDA]`, Legend: `dim_company[entityname]` |
-| EBITDA Margin % | Card | `[EBITDA Margin %]` |
-| Company slicer | Slicer | `dim_company[entityname]` |
-| Year slicer | Slicer | `dim_date[year]` |
-| Filing type slicer | Slicer | `fct_company_period[form]` (filter to 10-K or 10-Q) |
+| EBITDA waterfall | Waterfall chart | Categories: Revenue, EBIT, D&A, EBITDA. Values: respective DAX measures | (done)
+| EBITDA trend | Line chart | X: `dim_date[year]`, Y: `[EBITDA]`, Legend: `dim_company[entityname]` | (done)
+| EBITDA Margin % | Card | `[EBITDA Margin %]` | (done)
+| Company slicer | Slicer | `dim_company[entityname]` | (done)
+| Year slicer | Slicer | `dim_date[year]` | (done as filter)
+| Financial Period slicer | Slicer | `fct_company_period[fp]` (FY / Q1 / Q2 / Q3) | (done)
 
 ### Page 2 — Component Analysis
 
 | Visual | Type | Fields |
 |---|---|---|
-| Component contribution | Stacked bar | X: `dim_date[year]`, Values: Revenue, EBIT, D&A by company |
-| EBIT vs EBITDA | Clustered bar | Compare EBIT and EBITDA side by side by company |
-| Period detail table | Table | entityname, end_date, fy, fp, Revenue, EBIT, D&A, EBITDA, EBITDA Margin % |
+| Component contribution | Stacked bar | X: `dim_date[year]`, Values: Revenue, EBIT, D&A by company | (done)
+| EBIT vs EBITDA | Clustered bar | Compare EBIT and EBITDA side by side by company | (done)
+| Period detail table | Table | entityname, end_date, fy, fp, Revenue, EBIT, D&A, EBITDA, EBITDA Margin % | (done)
 
 ### Page 3 — Company Comparison
 
 | Visual | Type | Fields |
 |---|---|---|
-| EBITDA by company | Bar chart | X: `dim_company[entityname]`, Y: `[EBITDA]` |
-| Margin ranking | Bar chart | X: `dim_company[entityname]`, Y: `[EBITDA Margin %]`, sorted descending |
-| Scatter: Revenue vs EBITDA | Scatter chart | X: `[Revenue]`, Y: `[EBITDA]`, Details: `dim_company[entityname]` |
+| EBITDA by company | Bar chart | X: `dim_company[entityname]`, Y: `[EBITDA]` | (done)
+| Margin ranking | Bar chart | X: `dim_company[entityname]`, Y: `[EBITDA Margin %]`, sorted descending | (done)
+| Scatter: Revenue vs EBITDA | Scatter chart | X: `[Revenue]`, Y: `[EBITDA]`, Details: `dim_company[entityname]` | (excluded — Revenue unavailable for significant portion of dataset; would produce misleading picture)
 
 ### Page 4 — Depreciation Schedule
 
 | Visual | Type | Fields |
 |---|---|---|
-| D&A trend | Line chart | X: `dim_date[year]`, Y: `[DA]`, Legend: `dim_company[entityname]` |
-| D&A by company table | Table | entityname, year, quarter_label, fy, fp, form, D&A |
+| D&A trend | Line chart | X: `dim_date[year]`, Y: `[DA]`, Legend: `dim_company[entityname]` | (done)
+| D&A by company table | Table | entityname, end_date, fy, fp, DA | (done)
+| KPI cards | Cards | Yearly D&A, YOY Growth %, Average D&A | (done)
 
 > Import `mart.v_depreciation_schedule` as a separate table for this page if a dedicated capital-tracking view is preferred over using DAX filters on the fact table.
 

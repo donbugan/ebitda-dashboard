@@ -4,7 +4,8 @@ CREATE SCHEMA IF NOT EXISTS mart;
 
 CREATE TABLE IF NOT EXISTS mart.dim_company (
     cik             bigint PRIMARY KEY,
-    entityname      text
+    entityname      text,
+    peer_group      text
 );
 
 CREATE TABLE IF NOT EXISTS mart.dim_date (

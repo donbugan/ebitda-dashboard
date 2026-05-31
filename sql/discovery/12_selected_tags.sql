@@ -18,6 +18,9 @@ TRUNCATE staging.selected_sec_tags;
 INSERT INTO staging.selected_sec_tags(tag) VALUES
     ('OperatingIncomeLoss'),
     ('DepreciationDepletionAndAmortization'),
+    ('DepreciationAndAmortization'),
     ('Revenues'),
+    ('RevenueFromContractWithCustomerExcludingAssessedTax'),
+    ('SalesRevenueNet'),
     ('InterestExpense'),
     ('IncomeTaxExpenseBenefit');
