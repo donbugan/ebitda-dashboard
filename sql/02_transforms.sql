@@ -1,9 +1,16 @@
 -- Mart layer transforms: populate dimensions and fact from staging
 
 -- dim_company: one row per company, upsert to handle reruns
+WITH deduped AS (
+    SELECT cik, entityname,
+        ROW_NUMBER() OVER (PARTITION BY cik ORDER BY filed DESC) as rn
+    FROM staging.companyfacts_selected
+)
+
 INSERT INTO mart.dim_company (cik, entityname)
-SELECT DISTINCT cik, entityname
-FROM staging.companyfacts_selected
+SELECT cik, entityname
+FROM deduped
+WHERE rn = 1
 ON CONFLICT (cik) DO UPDATE
     SET entityname = EXCLUDED.entityname;
 
